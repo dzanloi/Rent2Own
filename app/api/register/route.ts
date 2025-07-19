@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 export async function POST(request: Request) {
     try {
-        const { name, email, password, confirmPassword } = await request.json();
+        const { name, password, confirmPassword } = await request.json();
 
         if (password !== confirmPassword) {
             toast("Passwords do not match");
@@ -15,17 +15,16 @@ export async function POST(request: Request) {
 
         await connectDB();
 
-        const existing = await User.findOne({ email });
+        const existing = await User.findOne({ name });
         if (existing) return NextResponse.json({ error: "User already exists" }, { status: 400 });
 
         const hashedPass = await bcrypt.hash(password, 10);
         const newUser = await User.create({
             name,
-            email,
             password: hashedPass,
         });
 
-        return NextResponse.json({ success: true, renter: newUser });
+        return NextResponse.json({ success: true, user: newUser });
     } catch (error) {
         toast("Error in registration:", error);
         return NextResponse.json({message: "Failed to Register"}, {status:500})

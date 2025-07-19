@@ -74,7 +74,6 @@ export const authOptions: NextAuthOptions = {
             if(dbUser) {
                 session.user.id = dbUser._id.toString();
                 session.user._id = dbUser._id.toString(); // ✅ ADDED: Make _id available in session
-                session.user.role = dbUser.role;  // Store role in session
             }
             console.log("Session User: ", session.user);
 

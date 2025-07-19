@@ -73,7 +73,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
                 if (res.ok) {
                     toast.success("Account created successfully! Please log in.");
-                    router.push('/sign-in');
+                    router.push('/login');
                 } else {
                     // Handle specific registration errors
                     if (data.error) {
@@ -105,7 +105,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
                     // Force session update and redirect
                     await new Promise(resolve => setTimeout(resolve, 500));
-                    window.location.href = "/rent-page"; // Hard redirect to ensure session is fresh
+                    window.location.href = "/"; // Hard redirect to ensure session is fresh
                 } else {
                     setIsloading(false);
 
@@ -157,7 +157,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     // Redirect if already logged in
     useEffect(() => {
         if (sessionStatus === 'authenticated') {
-            router.push('/rent-page');
+            router.push('/');
         }
     }, [sessionStatus, router]);
 
@@ -244,32 +244,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
                                 <p className='text-sm text-red-400 animate-in fade-in-0 slide-in-from-left-2'>{fieldErrors.name}</p>
                             )}
                     </div>
-
-
-                    {/* Email field */}
-                    {/* <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-300">Email Address</label>
-                        <div className="relative group">
-                            <Input
-                                type="email"
-                                name="email"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={e => {
-                                    setEmail(e.target.value);
-                                    clearFieldError('email');
-                                }}
-                                className={`bg-slate-800/50 border-slate-600/50 text-white placeholder-slate-400 h-12 rounded-xl focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 ${
-                                    fieldErrors.email ? 'border-red-500/50 focus:border-red-500/50 focus:ring-red-500/20' : ''
-                                }`}
-                                required
-                            />
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                        </div>
-                        {fieldErrors.email && (
-                            <p className='text-sm text-red-400 animate-in fade-in-0 slide-in-from-left-2'>{fieldErrors.email}</p>
-                        )}
-                    </div> */}
 
                     {/* Password field */}
                     <div className="space-y-2">
