@@ -51,7 +51,7 @@ export const authOptions: NextAuthOptions = {
                 if (account?.provider === "google") {
                     await connectDB();
 
-                    const existingUser = await User.findOne({ email: user.email });
+                    const existingUser = await User.findOne({ name: user.name });
 
                     if (!existingUser) {
                         await User.create({
@@ -69,7 +69,7 @@ export const authOptions: NextAuthOptions = {
 
         async session({ session }) {
             await connectDB();
-            const dbUser = await User.findOne({ email: session.user?.email });
+            const dbUser = await User.findOne({ name: session.user?.name });
 
             if(dbUser) {
                 session.user.id = dbUser._id.toString();

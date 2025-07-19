@@ -337,7 +337,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
                 <Button
                     variant="outline"
                     type="button"
-                    onClick={() => signIn("google", { callbackUrl: "/rent-page" })}
+                    onClick={() => signIn("google", { callbackUrl: "/" })}
                     className="flex items-center justify-center w-full h-12 font-semibold text-white bg-slate-800/50 border-slate-600/50 hover:bg-slate-700/50 hover:border-slate-500/50 rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
                     disabled={isLoading}
                 >
