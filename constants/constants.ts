@@ -3,27 +3,22 @@ import { FaHome, FaInbox, FaMotorcycle, FaStar, FaUser } from "react-icons/fa";
 export const adminLinks = [
     {
         name: "Dashboard",
-        path: '/admin',
+        path: '/',
         icon: FaHome,
     },
     {
-        name: "Reservations",
-        path: '/admin/reservations',
-        icon: FaInbox,
-    },
-    {
-        name: "Renters",
-        path: '/admin/renters',
-        icon: FaUser,
-    },
-    {
-        name: "Reviews",
-        path: '/admin/reviews',
+        name: "Products",
+        path: '/products',
         icon: FaStar,
     },
     {
-        name: "Scooters",
-        path: '/admin/scooters',
-        icon: FaMotorcycle,
+        name: "Renters",
+        path: '/renters',
+        icon: FaUser,
+    },
+    {
+        name: "Reservations",
+        path: '/reservations',
+        icon: FaInbox,
     },
 ]

@@ -30,8 +30,8 @@ const AppSidebar = () => {
                         <Shield className="w-7 h-7 text-white" />
                     </div>
                     <div className="flex-1">
-                        <h1 className="text-xl font-bold text-white">Admin</h1>
-                        <p className="text-sm text-slate-400">Control Panel</p>
+                        <h1 className="text-xl font-bold text-white">Control Panel</h1>
+                        {/* <p className="text-sm text-slate-400">Panel</p> */}
                     </div>
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
@@ -54,7 +54,7 @@ const AppSidebar = () => {
                             {user?.name || "Administrator"}
                         </p>
                         <p className="text-slate-400 text-xs truncate">
-                            {user?.email || "admin@system.com"}
+                            {user?.email || "Account is not google account."}
                         </p>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ const AppSidebar = () => {
                         <AlertDialogHeader>
                             <AlertDialogTitle>Sign out?</AlertDialogTitle>
                             <AlertDialogDescription>
-                            Are you sure you want to sign out as an admin?
+                            Are you sure you want to sign out?
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
@@ -178,7 +178,7 @@ const AppSidebar = () => {
                 {/* Version Info */}
                 <div className="mt-4 text-center">
                     <p className="text-xs text-slate-500">
-                        Admin Dashboard
+                        Dashboard
                     </p>
                     <p className="text-xs text-slate-600 mt-1">
                         v2.1.0
